@@ -8,12 +8,19 @@ class ListItem extends Component {
     }
 
     handleClick() {
-	// Implement this function!
+		if(this.state.color === 'black'){
+			this.setState({color:'grey'});
+		}
+		else{
+			this.setState({color:'black'});
+		}
+		
     }
 
   render() {
     var item = this.props.item;
-    var name = item.name;
+    var name = item;
+//	console.log(name);
 
     return (
 	    <span onClick={this.handleClick.bind(this)} style={{color: this.state.color}}>

@@ -20,9 +20,14 @@ class App extends Component {
    * as the value put into the "lists" array. It should then re-render this App component.
    */
   handleAddList(s) {
-	  var listname = s.name;
-	  //console.log(s);
-	  this.setState({lists:this.state.lists.concat(listname),items:this.state.items.listname=[]});
+	 var listname = s.name;
+	 this.setState({lists:this.state.lists.concat(listname)});
+	 this.setState(prevState =>{let items = Object.assign({}, prevState.items);
+	 items[listname] = []; return {items}; });
+//	  
+//	  console.log(this.state.lists); 
+//	  console.log(this.state.items); 
+
   }
 
   /**
@@ -34,7 +39,10 @@ class App extends Component {
    * the state, this function  should then re-render this App component.
    */
   handleAddItem(s) {
-      // Implement this function!
+	  var listname = s.name;
+	  this.setState(prevState =>{let items = Object.assign({}, prevState.items);
+	 items[listname] = prevState.items[listname].concat(s.newItem); return {items}; });
+	  //console.log(this.state.items); 
   }
 
   /**
@@ -44,6 +52,7 @@ class App extends Component {
     return (
       <div className="App">
         <AddList addList={this.handleAddList.bind(this)} />
+
         <div id="listsDiv" className="List">
           <Lists lists={this.state.lists} items={this.state.items} addItem={this.handleAddItem.bind(this)} />
         </div>
