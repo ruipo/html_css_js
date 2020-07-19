@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=divice-width, initial-scale=1.0"/>
+-->
+	<title>Dominion Game Results and Player Statistics</title>
+	<script src="./require.js"></script>
+	<script src="./fs.js"></script>
+</head>
+
+<body>
+	<form>
+		
+		<div class="resultForm">
+			<label>Date:</label>
+			<input type="date" id="gamedate" placeholder="Game Date" /> 	
+		</div>
+	
+		<div class="resultForm">
+			<label>1st Place:</label>
+			<input type="text" id="1pl" placeholder="1st Place" /> 
+			<label>VP:</label>
+			<input type="number" id="1plvp" placeholder="VP" /> 
+		</div>
+		
+		<div class="resultForm">
+			<label>2nd Place:</label>
+			<input type="text" id="2pl" placeholder="2nd place" /> 
+			<label>VP:</label>
+			<input type="number" id="2plvp" placeholder="VP" /> 
+		</div>
+		
+		<div class="resultForm">
+			<label>3rd Place:</label>
+			<input type="text" id="3pl" placeholder="3rd place" /> 
+			<label>VP:</label>
+			<input type="number" id="3plvp" placeholder="VP" /> 
+		</div>
+		
+		<div class="resultForm">
+			<label>4th Place:</label>
+			<input type="text" id="4pl" placeholder="4th place" /> 
+			<label>VP:</label>
+			<input type="number" id="4plvp" placeholder="VP" /> 
+		</div>
+		
+		<div class="resultForm">
+			<label>5th Place:</label>
+			<input type="text" id="5pl" placeholder="5th place" /> 
+			<label>VP:</label>
+			<input type="number" id="5plvp" placeholder="VP" /> 
+		</div>
+		
+		<div class="resultForm">
+			<label>6th Place:</label>
+			<input type="text" id="6pl" placeholder="6th place" /> 
+			<label>VP:</label>
+			<input type="number" id="6plvp" placeholder="VP" /> 
+		</div>
+		
+		<div class="resultForm">
+			<label>Number of Turns:</label>
+			<input type="number" id="turns" placeholder="# of turns" /> 
+		</div>
+		
+		<div class="resultForm">
+			<label>Game Sets:</label>
+			<input type="text" id="set" placeholder="Base" /> 
+		</div>
+		
+		<div class="resultForm">
+			<button id='submitBtn'>Add Game Result</button>
+		
+		</div>
+	
+	</form>
+	
+	
+	<script>
+		
+		let gameResults = [];
+		
+		const addGameResult = (ev)=>{
+			
+			ev.preventDefault(); //to stop form from submitting
+			
+			let gameResult = {
+				id: Date.now(),
+				date: document.getElementById('gamedate').value,
+				first: document.getElementById('1pl').value,
+				firstvp: document.getElementById('1plvp').value,
+				second: document.getElementById('2pl').value,
+				secondvp: document.getElementById('2plvp').value,
+				third: document.getElementById('3pl').value,
+				thirdvp: document.getElementById('3plvp').value,
+				fourth: document.getElementById('4pl').value,
+				fourthvp: document.getElementById('4plvp').value,
+				fifth: document.getElementById('5pl').value,
+				fifthvp: document.getElementById('5plvp').value,
+				sixth: document.getElementById('6pl').value,
+				sixthvp: document.getElementById('6plvp').value,
+				turnNum: document.getElementById('turns').value,
+				set: document.getElementById('set').value,
+			}
+			
+			gameResults.push(gameResult);
+			document.forms[0].reset(); //reset form
+		}
+		
+		document.addEventListener('DOMContentLoaded',()=>{
+			document.getElementById('submitBtn').addEventListener('click',addGameResult);
+		});
+		
+		
+		
+
+		require(['fs'], function (fs) {});
+		var gameResultsParse = JSON.stringify(gameResults);
+		fs.writeFile('gameResults.json',gameResultsParse);
+	
+	
+	</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+extends layout
+
+block content
+  -data = data || {}
+
+  if errors
+    ul
+      for error in errors
+        li=error.msg
+
+  form(action="." method="POST")
+    div.resultForm
+      label(for="date") Game Date:
+      input(
+        type="date"
+        id="date"
+        name="date"
+        value = data.date
+      )
+
+    div.resultForm
+      label(for="firstpl") 1st Place:
+      input(
+        type="text"
+        id="firstpl"
+        name="firstpl"
+        value = data.firstpl
+      )
+      label(for="VP") VP:
+      input(
+        type="number"
+        id="1stplvp"
+        name="firstvp"
+        value = data.firstvp
+      )
+
+    div.resultForm
+      label(for="secondpl") 2nd Place:
+      input(
+        type="text"
+        id="secondpl"
+        name="secondpl"
+        value = data.secondpl
+      )
+      label(for="VP") VP:
+      input(
+        type="number"
+        id="2ndplvp"
+        name="secondvp"
+        value = data.secondvp
+      )
+
+    div.resultForm
+      label(for="3rd_Place") 3rd Place:
+      input(
+        type="text"
+        id="3pl"
+        name="thirdpl"
+      )
+      label(for="VP") VP:
+      input(
+        type="number"
+        id="3plvp"
+        name="thirdvp"
+      )
+
+    div.resultForm
+      label(for="4th_Place") 4th Place:
+      input(
+        type="text"
+        id="4pl"
+        name="fourthpl"
+      )
+      label(for="VP") VP:
+      input(
+        type="number"
+        id="4plvp"
+        name="fourthvp"
+      )
+
+    div.resultForm
+      label(for="5th_Place") 5th Place:
+      input(
+        type="text"
+        id="5pl"
+        name="fifthpl"
+      )
+      label(for="VP") VP:
+      input(
+        type="number"
+        id="5plvp"
+        name="fifthvp"
+      )
+
+    div.resultForm
+      label(for="6th_Place") 6th Place:
+      input(
+        type="text"
+        id="6pl"
+        name="sixthpl"
+      )
+      label(for="VP") VP:
+      input(
+        type="number"
+        id="6plvp"
+        name="sixthvp"
+      )
+
+    div.resultForm
+      label(for="Number_of_Turns") Number of Turns:
+      input(
+        type="number"
+        id="turnsNum"
+        name="turnsNum"
+        value = data.turnsNum
+      )
+
+    div.resultForm
+      label(for="Game_Sets") Game Sets:
+      input(
+        type="text"
+        id="sets"
+        name="sets"
+        value = data.sets
+      )
+
+    div.resultForm
+      input(type="submit" id="submitBtn " value="Submit")
