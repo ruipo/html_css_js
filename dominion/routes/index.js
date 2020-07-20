@@ -6,13 +6,13 @@ const router = express.Router();
 const gameResult = mongoose.model('gameResult');
 
 router.get('/', (req, res) => {
-	res.render('form',{title:'Game Result Form'});
+	res.render('form',{title:'Game Result Submission'});
 });
 
 router.get('/gameResults', (req, res) => {
 	gameResult.find()
 		.then((gameresults) => {
-			res.render('index', {title: 'Listing Game Results',gameresults });
+			res.render('index', {title: 'Game Results & Player Stats',gameresults });
 		})
 		.catch(() => { res.send('Sorry! Trouble retrieving game results.');});
 	
@@ -50,7 +50,9 @@ router.post('/',
 			console.log(req.body);
 			const game_Results = new gameResult(req.body);
 			game_Results.save()
-				.then(() => {res.send('The game result has been successfully submitted and logged!');})
+				.then(() => {res.render('form',{
+				title : 'Game Result Form',
+				errors: errors.array()});})
 				.catch((err) => {
 					console.log(err);
 					res.send('Sorry! Game Result Logging Unsucessful.');

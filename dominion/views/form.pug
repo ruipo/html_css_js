@@ -8,13 +8,14 @@ block content
       for error in errors
         li=error.msg
 
-  form(action="." method="POST")
+  form(action="." method="POST" class="form-gameresult")
     div.resultForm
       label(for="date") Game Date:
       input(
         type="date"
         id="date"
         name="date"
+        class="date"
         value = data.date
       )
 
@@ -24,13 +25,16 @@ block content
         type="text"
         id="firstpl"
         name="firstpl"
+        class="form-control"
         value = data.firstpl
       )
+    div.resultForm
       label(for="VP") VP:
       input(
         type="number"
         id="1stplvp"
         name="firstvp"
+        class="form-control"
         value = data.firstvp
       )
 
@@ -40,13 +44,16 @@ block content
         type="text"
         id="secondpl"
         name="secondpl"
+        class="form-control"
         value = data.secondpl
       )
+    div.resultForm
       label(for="VP") VP:
       input(
         type="number"
         id="2ndplvp"
         name="secondvp"
+        class="form-control"
         value = data.secondvp
       )
 
@@ -56,12 +63,15 @@ block content
         type="text"
         id="3pl"
         name="thirdpl"
+        class="form-control"
       )
+    div.resultForm
       label(for="VP") VP:
       input(
         type="number"
         id="3plvp"
         name="thirdvp"
+        class="form-control"
       )
 
     div.resultForm
@@ -70,12 +80,15 @@ block content
         type="text"
         id="4pl"
         name="fourthpl"
+        class="form-control"
       )
+    div.resultForm
       label(for="VP") VP:
       input(
         type="number"
         id="4plvp"
         name="fourthvp"
+        class="form-control"
       )
 
     div.resultForm
@@ -84,12 +97,15 @@ block content
         type="text"
         id="5pl"
         name="fifthpl"
+        class="form-control"
       )
+    div.resultForm
       label(for="VP") VP:
       input(
         type="number"
         id="5plvp"
         name="fifthvp"
+        class="form-control"
       )
 
     div.resultForm
@@ -98,12 +114,15 @@ block content
         type="text"
         id="6pl"
         name="sixthpl"
+        class="form-control"
       )
+    div.resultForm
       label(for="VP") VP:
       input(
         type="number"
         id="6plvp"
         name="sixthvp"
+        class="form-control"
       )
 
     div.resultForm
@@ -112,6 +131,7 @@ block content
         type="number"
         id="turnsNum"
         name="turnsNum"
+        class="form-control"
         value = data.turnsNum
       )
 
@@ -121,8 +141,9 @@ block content
         type="text"
         id="sets"
         name="sets"
+        class="form-control"
         value = data.sets
       )
 
     div.resultForm
-      input(type="submit" id="submitBtn " value="Submit")
+      input(type="submit" id="submitBtn" value="Submit" class="btn btn-lg btn-primary btn-block")

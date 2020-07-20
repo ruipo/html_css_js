@@ -3,40 +3,40 @@ extends layout
 block content
 
 	if gameresults
-		table
-		tr
-			th Date
-			th 1st Place
-			th VP
-			th 2nd Place
-			th VP
-			th 3rd Place
-			th VP
-			th 4th Place
-			th VP
-			th 5th Place
-			th VP
-			th 6th Place
-			th VP
-			th Number of Turns
-			th Game Sets
-		each gameresult in gameresults
+		table.listing-table.table-dark.table-striped
 			tr
-				td= gameresult.date
-				td= gameresult.firstpl
-				td= gameresult.firstvp
-				td= gameresult.secondpl
-				td= gameresult.secondvp
-				td= gameresult.thirdpl
-				td= gameresult.thirdvp
-				td= gameresult.fourthpl
-				td= gameresult.fourthvp
-				td= gameresult.fifthpl
-				td= gameresult.fifthvp
-				td= gameresult.sixthpl
-				td= gameresult.sixthvp
-				td= gameresult.turnsNum
-				td= gameresult.sets
+				th Game Date
+				th 1st Place
+				th VP
+				th 2nd Place
+				th VP
+				th 3rd Place
+				th VP
+				th 4th Place
+				th VP
+				th 5th Place
+				th VP
+				th 6th Place
+				th VP
+				th # of Turns
+				th Game Sets
+			each gameresult in gameresults
+				tr
+					td= gameresult.date
+					td= gameresult.firstpl
+					td= gameresult.firstvp
+					td= gameresult.secondpl
+					td= gameresult.secondvp
+					td= gameresult.thirdpl
+					td= gameresult.thirdvp
+					td= gameresult.fourthpl
+					td= gameresult.fourthvp
+					td= gameresult.fifthpl
+					td= gameresult.fifthvp
+					td= gameresult.sixthpl
+					td= gameresult.sixthvp
+					td= gameresult.turnsNum
+					td= gameresult.sets
 
 	else
 		p No game results yet... play more games =P
