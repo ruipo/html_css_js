@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+	if playerstats
+		table.listing-table.table-dark.table-striped
+			tr
+				th Player Name
+				th Games Played
+				th Games Won
+				th Win Rate (%)
+				th Total VPs
+				th VPs/Game
+				th Points
+				th Points/Game
+				th Golf
+				th ELO
+			each player in playerstats
+				tr
+					td= player.name
+					td= player.games
+					td= player.wins
+					td= player.win_rate
+					td= player.totalvps
+					td= player.vpspergame
+					td= player.points
+					td= player.ptspergame
+					td= player.golf
+					td= player.elo[player.elo.length-1]
+
+	else
+		p No player stats yet... and players and play more games =P

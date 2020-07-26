@@ -8,7 +8,7 @@ block content
       for error in errors
         li=error.msg
 
-  form(action="." method="POST" class="form-gameresult")
+  form(action="/addGameResult" method="POST" class="form-gameresult")
     div.resultForm
       label(for="date") Game Date:
       input(

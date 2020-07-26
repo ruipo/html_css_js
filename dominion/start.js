@@ -1,4 +1,5 @@
 require('./models/gameResult');
+require('./models/playerStat');
 const app = require('./app');
 require('dotenv').config();
 const mongoose = require('mongoose');

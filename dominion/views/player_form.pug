@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  -data = data || {}
+
+  if errors
+    ul
+      for error in errors
+        li=error.msg
+
+  form(action="/addPlayer" method="POST" class="form-player")
+    div.resultForm
+      label(for="name") Player Name:
+      input(
+        type="name"
+        id="name"
+        name="name"
+        class="name"
+        value = data.name
+      )
+
+    div.resultForm
+      input(type="submit" id="submitBtn" value="Submit" class="btn btn-lg btn-primary btn-block")
