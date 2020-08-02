@@ -29,7 +29,7 @@ const playerStatSchema = new mongoose.Schema({
     type: Number, default: 0
   },
   elo:{
-    type: [Number], default: [1000]
+    type: Number, default: 1000
   },
 });
 
