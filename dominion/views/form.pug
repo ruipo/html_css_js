@@ -7,6 +7,8 @@ block content
     ul
       for error in errors
         li=error.msg
+  p
+  p(style="color: #FF0000") Do not forget to add new player first if there is a new player!
 
   form(action="/addGameResult" method="POST" class="form-gameresult")
     div.resultForm
